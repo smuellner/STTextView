@@ -20,7 +20,7 @@ let package = Package(
             name: "STTextView",
             dependencies: [
                 .target(name: "STTextViewAppKit", condition: .when(platforms: [.macOS])),
-                .target(name: "STTextViewUIKit", condition: .when(platforms: [.iOS, .macCatalyst]))
+                .target(name: "STTextViewUIKit", condition: .when(platforms: [.iOS]))
             ]
         ),
         .target(
@@ -42,7 +42,7 @@ let package = Package(
             name: "STTextViewUIKit",
             dependencies: [
                 .target(name: "STTextViewCommon"),
-                .target(name: "STObjCLandShim", condition: .when(platforms: [.iOS, .macCatalyst])),
+                .target(name: "STObjCLandShim", condition: .when(platforms: [.iOS])),
                 .product(name: "STTextKitPlus", package: "STTextKitPlus"),
                 .product(name: "CoreTextSwift", package: "CoreTextSwift")
             ],
@@ -54,7 +54,7 @@ let package = Package(
             name: "STTextViewSwiftUI",
             dependencies: [
                 .target(name: "STTextViewSwiftUIAppKit", condition: .when(platforms: [.macOS])),
-                .target(name: "STTextViewSwiftUIUIKit", condition: .when(platforms: [.iOS, .macCatalyst]))
+                .target(name: "STTextViewSwiftUIUIKit", condition: .when(platforms: [.iOS]))
             ]
         ),
         .target(
@@ -82,7 +82,7 @@ let package = Package(
         .testTarget(
             name: "STTextViewUIKitTests",
             dependencies: [
-                .target(name: "STTextViewUIKit", condition: .when(platforms: [.iOS, .macCatalyst]))
+                .target(name: "STTextViewUIKit", condition: .when(platforms: [.iOS]))
             ]
         )
     ]
